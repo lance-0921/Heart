@@ -26,7 +26,7 @@
   position: absolute;
 }
 /* 遇到问题：手机如何分成上下两半 */
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   #html {
     height: 50vh;
     overflow: auto;
