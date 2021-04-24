@@ -25,3 +25,19 @@
 #heart > .div3 {
   position: absolute;
 }
+/* 遇到问题：手机如何分成上下两半 */
+@media (max-width: 500px) {
+  #html {
+    height: 50vh;
+    overflow: auto;
+  }
+  #divWrapper {
+    height: 50vh;
+  }
+  #heart {
+    position: fixed;
+    top: 25%;
+    left: 35%;
+    transform: translateX(-50%);
+  }
+}

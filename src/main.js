@@ -4,10 +4,11 @@ let style = document.querySelector('#style');
 let string =`
 /*你好，我叫多乐
 *下面我为你展示我的前端功底
-*现场画一个跳动的心
+*注意观看哦
+*我将现场写出一个跳动的心
 */
 /*
-首先写一个div
+首先写3个标签
 */
 #heart>.div1{
     outline: 1px solid black;
@@ -15,8 +16,6 @@ let string =`
     height: 100px;
     background:red;    
 }
-/*然后写两个伪元素*/
-
 #heart>.div2{
     content: "2";
     outline: 1px solid black;
@@ -31,7 +30,7 @@ let string =`
     height: 100px;
     background:red;
 }
-/*移动伪元素的位置、变成圆弧*/
+/*移动其中元素的位置、变成圆弧*/
 #heart>.div2{
     transform: rotate(45deg) translate(-80px);
     border-radius: 50% 0 0 50%;
@@ -51,8 +50,9 @@ let string =`
     outline:none;
 }
 /*最后让红心动起来*/
-/*遇到问题：使用transform: scale()会使心形变形*/
-
+#heart{
+    animation:.3s infinite alternate-reverse heart;
+}
 @keyframes heart {
     from {
       transform: scale(1);
@@ -61,11 +61,9 @@ let string =`
       transform: scale(1.2);
     }
   }
-#heart{
-    animation:.3s infinite alternate-reverse heart;
-}
-`;
 
+`;
+/*遇到问题：如果用一个div加两个伪元素，在使用transform: scale()会使心形变形*/
 let n = 0;
 let string2 = ``;
 let step=()=>{
