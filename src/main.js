@@ -9,7 +9,7 @@ let string =`
 /*
 首先写一个div
 */
-#div1{
+#heart>.div1{
     outline: 1px solid black;
     width: 100px;
     height: 100px;
@@ -17,14 +17,14 @@ let string =`
 }
 /*然后写两个伪元素*/
 
-#div1::before{
+#heart>.div2{
     content: "2";
     outline: 1px solid black;
     width: 100px;
     height: 100px;
     background:red;
 }
-#div1::after{
+#heart>.div3{
     content: "3";
     outline: 1px solid black;
     width: 100px;
@@ -32,37 +32,38 @@ let string =`
     background:red;
 }
 /*移动伪元素的位置、变成圆弧*/
-#div1::before{
-    transform: translateY(-100px);
-    border-radius: 50% 50% 0 0;
-}
-#div1::after{
-    right: 100px;
+#heart>.div2{
+    transform: rotate(45deg) translate(-80px);
     border-radius: 50% 0 0 50%;
 }
-
-/*让红心更形象*/
-#div1::before{
-    transform: translateY(-80px); 
+#heart>.div3{
+    transform: rotate(45deg) translateY(-80px);
+    border-radius: 50% 50% 0 0 ;
 }
-#div1::after{
-    transform: translate(20px);
-}
-
-/*消除标记和黑边框*/
-#div1{
+/*消除黑边框*/
+#heart>.div1{
     outline:none;
 }
-#div1::before{
-    content:' ';
+#heart>.div2{
     outline:none;
 }
-#div1::after{
-    content:' ';
+#heart>.div3{
     outline:none;
 }
 /*最后让红心动起来*/
 /*遇到问题：使用transform: scale()会使心形变形*/
+
+@keyframes heart {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+#heart{
+    animation:.3s infinite alternate-reverse heart;
+}
 `;
 
 let n = 0;
@@ -86,6 +87,6 @@ let step=()=>{
         if(n<string.length){
             step();
         }else{}
-    },)
+    },10)
 }
 step();
